@@ -7,7 +7,7 @@ if (strlen(session_id()) < 1)
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ITVentas | www.incanatoit.com</title>
+    <title>VETERINARIA</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -36,11 +36,11 @@ if (strlen(session_id()) < 1)
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="#" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>IT</b>Ventas</span>
+          <span class="logo-mini"><b>V</b>ET</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>ITVentas</b></span>
+          <span class="logo-lg"><b>VETERINARIA</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -57,16 +57,15 @@ if (strlen(session_id()) < 1)
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="user-image" alt="User Image">
+                  <img src="../../files/usuarios/user.jpg" class="user-image" alt="User Image">
                   <span class="hidden-xs"><?php echo $_SESSION['nombre']; ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="../../files/usuarios/<?php echo $_SESSION['imagen']; ?>" class="img-circle" alt="User Image">
+                    <img src="../../files/usuarios/user.jpg" class="img-circle" alt="User Image">
                     <p>
-                      www.incanatoit.com - Desarrollando Software
-                      <small>www.youtube.com/jcarlosad7</small>
+                                                         
                     </p>
                   </li>
                   
@@ -94,9 +93,8 @@ if (strlen(session_id()) < 1)
             <li class="header"></li>            
 
             <li>
-              <a href="categoria.php">
-                <i class="fa fa-info-circle"></i> <span>Categoria</span>
-                <small class="label pull-right bg-yellow">IT</small>
+              <a href="vacuna.php">
+                <i class="fa fa-info-circle"></i> <span>Vacuna</span>                
               </a>
             </li>
                         

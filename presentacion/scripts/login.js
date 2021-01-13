@@ -1,5 +1,4 @@
-$("#frmAcceso").on('submit',function(e)
-{
+$("#frmAcceso").on('submit', function(e) {
 	e.preventDefault();
     logina=$("#logina").val();
     clavea=$("#clavea").val();
@@ -10,7 +9,7 @@ $("#frmAcceso").on('submit',function(e)
     {
         if (data!="null")
         {
-            $(location).attr("href","categoria.php");            
+            $(location).attr("href","vacuna.php");            
         }
         else
         {

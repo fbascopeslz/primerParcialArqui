@@ -90,9 +90,11 @@ Class Usuario
 	}
 
 	//Función para verificar el acceso al sistema
-	public function verificar($login,$clave)
+	public function verificar($login, $clave)
     {
-    	$sql="SELECT idusuario,nombre,tipo_documento,num_documento,telefono,email,cargo,imagen,login FROM usuario WHERE login='$login' AND clave='$clave' AND condicion='1'"; 
+    	$sql = "SELECT id, login, password, idGrupo
+				FROM usuario 
+				WHERE login = '$login' AND password = '$clave'"; 
     	return ejecutarConsulta($sql);  
     }
 }
