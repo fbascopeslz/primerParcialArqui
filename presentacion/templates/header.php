@@ -97,6 +97,12 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-info-circle"></i> <span>Vacuna</span>                
               </a>
             </li>
+
+            <li>
+              <a href="cartillaVacunacion.php">
+                <i class="fa fa-info-circle"></i> <span>Cartilla Vacunacion</span>                
+              </a>
+            </li>
                         
           </ul>
         </section>

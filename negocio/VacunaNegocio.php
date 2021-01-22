@@ -40,7 +40,13 @@ class VacunaNegocio {
     {
         $rspta = $this->vacunaDatos->listar();
         return $rspta;
-    }    
+    }
+
+    public function seleccionarVacuna($idPaciente) 
+    {
+        $rspta = $this->vacunaDatos->seleccionarVacuna($idPaciente);
+        return $rspta;
+    } 
 }
 
 ?>

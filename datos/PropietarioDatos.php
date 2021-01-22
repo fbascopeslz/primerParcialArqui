@@ -2,12 +2,15 @@
 //Incluímos inicialmente la conexión a la base de datos
 require "../config/Conexion.php";
 
-Class VacunaDatos
+Class PropietarioDatos
 {
-	public $idVacuna;
+	public $idPropietario;
+	public $fechaUnion;
+
 	public $nombre;
-	public $indicaciones;
-	public $fechaVencimiento;
+	public $ci;
+	public $telefono;
+	public $email;
 
 	//Implementamos nuestro constructor
 	public function __construct()
@@ -15,48 +18,18 @@ Class VacunaDatos
 
 	}
 	
-
-	public function getIdVacuna()
+	public function getIdPropietario()
 	{
-		return $this->idVacuna;
+		return $this->IdPropietario;
 	}
 
-	public function setIdVacuna($idVacuna)
+	public function setIdPropietario($IdPropietario)
 	{
-		$this->idVacuna = $idVacuna;
+		$this->IdPropietario = $IdPropietario;
 	}
 
-	public function getNombre()
-	{
-		return $this->nombre;
-	}
-
-	public function setNombre($nombre)
-	{
-		$this->nombre = $nombre;
-	}
-
-	public function getIndicaciones()
-	{
-		return $this->indicaciones;
-	}
-
-	public function setIndicaciones($indicaciones)
-	{
-		$this->indicaciones = $indicaciones;
-	}
-
-	public function getFechaVencimiento()
-	{
-		return $this->fechaVencimiento;
-	}
-
-	public function setFechaVencimiento($fechaVencimiento)
-	{
-		$this->fechaVencimiento = $fechaVencimiento;
-	}
 	
-
+/*
 	//Implementamos un método para insertar registros
 	public function insertar()
 	{
@@ -79,25 +52,16 @@ Class VacunaDatos
 		$sql="SELECT * FROM vacuna WHERE id = '$this->idVacuna'";
 		return ejecutarConsultaSimpleFila($sql);
 	}
-
+*/
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT * FROM vacuna";
+		$sql = "SELECT Pro.id, Per.nombre, Per.ci, Per.telefono, Per.email, Pro.fechaUnion
+				FROM persona Per, propietario Pro
+				WHERE Pro.idPersona = Per.id";
 		return ejecutarConsulta($sql);		
 	}
 	
-	public function seleccionarVacuna($idPaciente)
-	{
-		$sql = "SELECT id, nombre, indicaciones
-				FROM vacuna
-				WHERE id NOT IN(
-					SELECT id
-					FROM cartillavacunacion
-					WHERE idPaciente = $idPaciente
-				)";
-		return ejecutarConsulta($sql);		
-	}
 }
 
 ?>

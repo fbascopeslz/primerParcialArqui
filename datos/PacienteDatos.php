@@ -2,12 +2,14 @@
 //Incluímos inicialmente la conexión a la base de datos
 require "../config/Conexion.php";
 
-Class VacunaDatos
+Class PacienteDatos
 {
-	public $idVacuna;
+	public $idPaciente;
 	public $nombre;
-	public $indicaciones;
-	public $fechaVencimiento;
+	public $sexo;
+	public $raza;
+	public $especie;
+	public $idPropietario;
 
 	//Implementamos nuestro constructor
 	public function __construct()
@@ -15,48 +17,18 @@ Class VacunaDatos
 
 	}
 	
-
-	public function getIdVacuna()
+	public function getIdPaciente()
 	{
-		return $this->idVacuna;
+		return $this->idPaciente;
 	}
 
-	public function setIdVacuna($idVacuna)
+	public function setIdPaciente($IdPaciente)
 	{
-		$this->idVacuna = $idVacuna;
+		$this->IdPaciente = $IdPaciente;
 	}
 
-	public function getNombre()
-	{
-		return $this->nombre;
-	}
-
-	public function setNombre($nombre)
-	{
-		$this->nombre = $nombre;
-	}
-
-	public function getIndicaciones()
-	{
-		return $this->indicaciones;
-	}
-
-	public function setIndicaciones($indicaciones)
-	{
-		$this->indicaciones = $indicaciones;
-	}
-
-	public function getFechaVencimiento()
-	{
-		return $this->fechaVencimiento;
-	}
-
-	public function setFechaVencimiento($fechaVencimiento)
-	{
-		$this->fechaVencimiento = $fechaVencimiento;
-	}
 	
-
+/*
 	//Implementamos un método para insertar registros
 	public function insertar()
 	{
@@ -79,25 +51,23 @@ Class VacunaDatos
 		$sql="SELECT * FROM vacuna WHERE id = '$this->idVacuna'";
 		return ejecutarConsultaSimpleFila($sql);
 	}
-
+*/
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT * FROM vacuna";
+		$sql = "SELECT id, nombre, sexo, raza, especie, idPropietario
+				FROM paciente";
 		return ejecutarConsulta($sql);		
 	}
 	
-	public function seleccionarVacuna($idPaciente)
+	public function seleccionarPaciente($idPropietario)
 	{
-		$sql = "SELECT id, nombre, indicaciones
-				FROM vacuna
-				WHERE id NOT IN(
-					SELECT id
-					FROM cartillavacunacion
-					WHERE idPaciente = $idPaciente
-				)";
+		$sql = "SELECT id, nombre, sexo, raza, especie, idPropietario
+				FROM paciente
+				WHERE idPropietario = $idPropietario";
 		return ejecutarConsulta($sql);		
 	}
+	
 }
 
 ?>

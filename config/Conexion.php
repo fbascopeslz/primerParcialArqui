@@ -41,6 +41,6 @@ if (!function_exists('ejecutarConsulta'))
 		global $conexion;
 		$str = mysqli_real_escape_string($conexion,trim($str));
 		return htmlspecialchars($str);
-	}
+	}	
 }
 ?>
