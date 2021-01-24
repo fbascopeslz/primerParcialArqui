@@ -19,14 +19,7 @@ class CartillaVacunacionPresentacion {
 		$this->cartillaVacunacionNegocio = new CartillaVacunacionNegocio();
 	}
 
-  /*
-    // Methods
-    public function insertar($nombre, $indicaciones, $fechaVencimiento) 
-    {        
-		$rspta = $this->PropietarioNegocio->insertar($nombre, $indicaciones, $fechaVencimiento);
-		echo $rspta ? "Propietario registrada" : "Propietario no se pudo registrar";		
-	}
-	
+  /*        	
 	public function editar($idPropietario, $nombre, $indicaciones, $fechaVencimiento) 
     {        
 		$rspta = $this->PropietarioNegocio->editar($idPropietario, $nombre, $indicaciones, $fechaVencimiento);
@@ -41,6 +34,12 @@ class CartillaVacunacionPresentacion {
     }
 */
 
+	public function insertar($idPaciente, $arrayIdVacunas, $arrayFechaProximaVacuna) 
+    {        
+		$rspta = $this->cartillaVacunacionNegocio->insertar($idPaciente, $arrayIdVacunas, $arrayFechaProximaVacuna);
+		echo $rspta ? "Cartilla de Vacunacion registrada" : "Cartilla de Vacunacion no se pudo registrar";		
+	}
+
 	public function seleccionarPropietario() 
     {
         $rspta = $this->propietarioNegocio->listar();
@@ -53,9 +52,9 @@ class CartillaVacunacionPresentacion {
 	}
 
 	public function seleccionarPaciente($idPropietario) 
-    {
-        $rspta = $this->pacienteNegocio->listar();
- 		//Codificar el resultado utilizando json		 				 
+    {		
+        $rspta = $this->pacienteNegocio->seleccionarPaciente($idPropietario);		
+		//Codificar el resultado utilizando json		 				 
 		while ($reg = $rspta->fetch_object())
 		{
 			//var_dump($reg);
@@ -65,18 +64,19 @@ class CartillaVacunacionPresentacion {
 
 	public function seleccionarVacuna($idPaciente) 
     {
-        $rspta = $this->vacunaNegocio->seleccionarVacuna($idPaciente);
- 		//Codificar el resultado utilizando json		 				 
+		$rspta = $this->vacunaNegocio->seleccionarVacuna($idPaciente);		
+		//Codificar el resultado utilizando json		 				 
 		while ($reg = $rspta->fetch_object())
 		{
 			//var_dump($reg);
 			echo '<option value=' . $reg->id . '>' . $reg->nombre . '</option>';
-		}
+		}		
 	}
 		
     public function listar($idPaciente) 
     {
-        $rspta = $this->cartillaVacunacionNegocio->listar($idPaciente);
+		$rspta = $this->cartillaVacunacionNegocio->listar($idPaciente);
+
  		//Vamos a declarar un array
  		$data = [];
 
@@ -102,29 +102,15 @@ class CartillaVacunacionPresentacion {
 }
 
 
-
-
-$idPaciente = isset($_POST["idPaciente"]) ? limpiarCadena($_POST["idPaciente"]) : "";
-$nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
-$indicaciones = isset($_POST["indicaciones"]) ? limpiarCadena($_POST["indicaciones"]) : "";
-$fechaVencimiento = isset($_POST["fechaVencimiento"]) ? limpiarCadena($_POST["fechaVencimiento"]) : "";
-
 $cartillaVacunacionPresentacion = new CartillaVacunacionPresentacion();
 switch ($_GET["op"]) 
 {
-	/*
-	case 'guardaryeditar':		
-		if (empty($idPropietario)) {
-			$PropietarioPresentacion->insertar($nombre, $indicaciones, $fechaVencimiento);
-		} else {
-			$PropietarioPresentacion->editar($idPropietario, $nombre, $indicaciones, $fechaVencimiento);
-		}				
+	case 'insertar':		
+		$idPaciente = isset($_GET["idPaciente"]) ? limpiarCadena($_GET["idPaciente"]) : "";
+		$arrayIdVacunas = $_POST["idVacuna"];
+		$arrayFechaProximaVacuna = $_POST["fechaProximaVacuna"];
+		$cartillaVacunacionPresentacion->insertar($idPaciente, $arrayIdVacunas, $arrayFechaProximaVacuna);
 	break;
-
-	case 'mostrar':
-		$PropietarioPresentacion->mostrar($idPropietario);
-	break;
-	*/
 
 	case 'listar':
 		$idPaciente = isset($_GET["idPaciente"]) ? limpiarCadena($_GET["idPaciente"]) : "";
@@ -136,14 +122,15 @@ switch ($_GET["op"])
 	break;
 
 	case 'seleccionarPaciente':
-		$idPropietario = isset($_POST["idPropietario"]) ? limpiarCadena($_POST["idPropietario"]) : "";
-		$cartillaVacunacionPresentacion->seleccionarPaciente();
+		$idPropietario = isset($_GET["idPropietario"]) ? limpiarCadena($_GET["idPropietario"]) : "";		
+		$cartillaVacunacionPresentacion->seleccionarPaciente($idPropietario);
 	break;
 
 	case 'seleccionarVacuna':
-		$idPaciente = isset($_GET["idPaciente"]) ? limpiarCadena($_GET["idPaciente"]) : "";
+		$idPaciente = isset($_GET["idPaciente"]) ? limpiarCadena($_GET["idPaciente"]) : "";		
 		$cartillaVacunacionPresentacion->seleccionarVacuna($idPaciente);
 	break;
+
 }
 
 ?>

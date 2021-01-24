@@ -27,22 +27,22 @@ Class CartillaVacunacionDatos
 		$this->idCartillaVacunacion = $idCartillaVacunacion;
 	}
 
-	public function getfechaVacuna()
+	public function getFechaVacuna()
 	{
 		return $this->fechaVacuna;
 	}
 
-	public function setfechaVacuna($fechaVacuna)
+	public function setFechaVacuna($fechaVacuna)
 	{
 		$this->fechaVacuna = $fechaVacuna;
 	}
 
-	public function getfechaProximaVacuna()
+	public function getFechaProximaVacuna()
 	{
 		return $this->fechaProximaVacuna;
 	}
 
-	public function setfechaProximaVacuna($fechaProximaVacuna)
+	public function setFechaProximaVacuna($fechaProximaVacuna)
 	{
 		$this->fechaProximaVacuna = $fechaProximaVacuna;
 	}
@@ -57,7 +57,7 @@ Class CartillaVacunacionDatos
 		$this->idPaciente = $idPaciente;
 	}
 
-	public function getidVacuna()
+	public function getIdVacuna()
 	{
 		return $this->idVacuna;
 	}
@@ -124,6 +124,13 @@ Class CartillaVacunacionDatos
 		return ejecutarConsulta($sql);
 	}
 	*/
+
+	public function insertar()
+	{		
+		$sql = "INSERT INTO cartillavacunacion (fechaVacuna, fechaProximaVacuna, idVacuna, idPaciente) 
+			VALUES ('$this->fechaVacuna','$this->fechaProximaVacuna', $this->idVacuna, $this->idPaciente)";
+		return ejecutarConsulta($sql);
+	}
 
 	public function listar($idPaciente)
 	{

@@ -92,10 +92,10 @@ Class VacunaDatos
 		$sql = "SELECT id, nombre, indicaciones
 				FROM vacuna
 				WHERE id NOT IN(
-					SELECT id
+					SELECT idVacuna
 					FROM cartillavacunacion
 					WHERE idPaciente = $idPaciente
-				)";
+				)";		
 		return ejecutarConsulta($sql);		
 	}
 }

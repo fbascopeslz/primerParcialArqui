@@ -29,7 +29,6 @@ require 'header.php';
 
                     <!-- centro -->
                     <div class="panel-body" id="listarCartillaVacunacion">
-
                       <form name="formularioSeleccionarPropietario" id="formularioSeleccionarPropietario" method="POST">
                         <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">                                                  
                           <select id="idPropietario" name="idPropietario" class="form-control selectpicker" data-live-search="true" required>
@@ -53,7 +52,7 @@ require 'header.php';
                       </form>
 
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">                          
-                        <button class="btn btn-primary" type="submit" id="btnAgregarVacuna" onclick="mostrarform(2)"><i class="fa fa-save"></i> Agregar Vacunas</button>
+                        <button class="btn btn-primary" type="submit" id="btnAgregarVacuna" onclick="mostrarform(4)"><i class="fa fa-save"></i> Agregar Vacunas</button>
                       </div>
 
                       <div class="panel-body table-responsive" id="listadoCartillaVacunacion">
@@ -80,7 +79,6 @@ require 'header.php';
 
                     <div class="panel-body" id="insertarCartillaVacunacion">
                       <form name="formularioInsertarCartillaVacunacion" id="formularioInsertarCartillaVacunacion" method="POST">
-
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                           <label>Selecciona una vacuna(*):</label>                            
                           <select id="idVacuna" name="idVacuna" class="form-control selectpicker" data-live-search="true" required>
@@ -89,37 +87,35 @@ require 'header.php';
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                           <label>Fecha Proxima Vacuna(*):</label>
-                          <input type="date" class="form-control" name="fechaProximaVacuna" id="fechaProximaVacuna" required="">
+                          <input type="date" class="form-control" name="fechaProximaVacuna" id="fechaProximaVacuna" required>
+                        </div>
+                      
+                        <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-12">                            
+                          <button class="btn btn-primary" type="button" onclick="agregarVacunaTabla()"><i class="fa fa-save" ></i> Añadir Vacuna</button>                                            
+                        </div>
+                                              
+                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                          <table id="tablaDetallesVacuna" class="table table-striped table-bordered table-condensed table-hover">
+                            <thead style="background-color:#A9D0F5">
+                              <th>Opciones</th>
+                              <th>Vacuna</th>                              
+                              <th>Fecha Vacuna</th>
+                              <th>Fecha Proxima Vacuna</th>                                  
+                            </thead>                          
+                            <tbody>
+                              
+                            </tbody>
+                            <tfoot>                                
+                                                          
+                            </tfoot>
+                          </table>
                         </div>
 
-                      </form>
-
-                      <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-12">                          
-                        <button class="btn btn-primary" type="submit" id="btnGuardar" onclick="agregarVacunaTabla()"><i class="fa fa-save" ></i> Añadir Vacuna</button>                                            
-                      </div>
-                                            
-                      <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
-                        <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
-                          <thead style="background-color:#A9D0F5">
-                            <th>Opciones</th>
-                            <th>Vacuna</th>                              
-                            <th>Fecha</th>
-                            <th>Fecha Proxima Vacuna</th>                                  
-                          </thead>
-                          <tfoot>                                
-                                                        
-                          </tfoot>
-                          <tbody>
-                            
-                          </tbody>
-                        </table>
-                      </div>
-
-                      <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
-                        <button id="btnCancelar" class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-                      </div>
-                      
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+                          <button id="btnCancelar" class="btn btn-danger" onclick="mostrarform(5)" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                        </div>                      
+                      </form>                      
                     </div>
                                         
                     <!--Fin centro -->

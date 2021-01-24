@@ -9,33 +9,40 @@ class PropietarioNegocio {
 	{
         $this->propietarioDatos = new PropietarioDatos();
 	}
-  /*
-    public function insertar($nombre, $indicaciones, $fechaVencimiento) 
+  
+    public function insertar($nombre, $ci, $telefono, $email) 
     {
-        $this->PropietarioDatos->setNombre($nombre);
-        $this->PropietarioDatos->setIndicaciones($indicaciones);
-        $this->PropietarioDatos->setFechaVencimiento($fechaVencimiento);
-        $rspta = $this->PropietarioDatos->insertar();
+        //set Timezone PHP
+        date_default_timezone_set('America/La_Paz');
+        
+        $this->propietarioDatos->setNombre($nombre);
+        $this->propietarioDatos->setCi($ci);
+        $this->propietarioDatos->setTelefono($telefono);
+        $this->propietarioDatos->setEmail($email);
+        $this->propietarioDatos->setFechaUnion(date('Y-m-d'));    
+        $rspta = $this->propietarioDatos->insertar();
         return $rspta;
     }
 
-    public function editar($idPropietario, $nombre, $indicaciones, $fechaVencimiento) 
+    public function editar($idPropietario, $nombre, $ci, $telefono, $email, $idPersona) 
     {
-        $this->PropietarioDatos->setIdPropietario($idPropietario);
-        $this->PropietarioDatos->setNombre($nombre);
-        $this->PropietarioDatos->setIndicaciones($indicaciones);
-        $this->PropietarioDatos->setFechaVencimiento($fechaVencimiento);
-        $rspta = $this->PropietarioDatos->editar();
+        $this->propietarioDatos->setIdPropietario($idPropietario);
+        $this->propietarioDatos->setNombre($nombre);
+        $this->propietarioDatos->setCi($ci);
+        $this->propietarioDatos->setTelefono($telefono);
+        $this->propietarioDatos->setEmail($email);
+        $this->propietarioDatos->setIdPersona($idPersona);
+        $rspta = $this->propietarioDatos->editar();
         return $rspta;
     }  
     
     public function mostrar($idPropietario) 
     {
-        $this->PropietarioDatos->setIdPropietario($idPropietario);
-        $rspta = $this->PropietarioDatos->mostrar();
+        $this->propietarioDatos->setIdPropietario($idPropietario);
+        $rspta = $this->propietarioDatos->mostrar();
         return $rspta;
     }
-*/
+
     public function listar() 
     {
         $rspta = $this->propietarioDatos->listar();

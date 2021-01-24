@@ -9,33 +9,37 @@ class PacienteNegocio {
 	{
         $this->pacienteDatos = new PacienteDatos();
 	}
-  /*
-    public function insertar($nombre, $indicaciones, $fechaVencimiento) 
+
+    public function insertar($nombre, $sexo, $raza, $especie, $idPropietario) 
     {
-        $this->PacienteDatos->setNombre($nombre);
-        $this->PacienteDatos->setIndicaciones($indicaciones);
-        $this->PacienteDatos->setFechaVencimiento($fechaVencimiento);
-        $rspta = $this->PacienteDatos->insertar();
+        $this->pacienteDatos->setNombre($nombre);
+        $this->pacienteDatos->setSexo($sexo);
+        $this->pacienteDatos->setRaza($raza);
+        $this->pacienteDatos->setEspecie($especie);
+        $this->pacienteDatos->setIdPropietario($idPropietario);
+        $rspta = $this->pacienteDatos->insertar();
         return $rspta;
     }
 
-    public function editar($idPaciente, $nombre, $indicaciones, $fechaVencimiento) 
+    public function editar($idPaciente, $nombre, $sexo, $raza, $especie, $idPropietario) 
     {
-        $this->PacienteDatos->setIdPaciente($idPaciente);
-        $this->PacienteDatos->setNombre($nombre);
-        $this->PacienteDatos->setIndicaciones($indicaciones);
-        $this->PacienteDatos->setFechaVencimiento($fechaVencimiento);
-        $rspta = $this->PacienteDatos->editar();
+        $this->pacienteDatos->setIdPaciente($idPaciente);
+        $this->pacienteDatos->setNombre($nombre);
+        $this->pacienteDatos->setSexo($sexo);
+        $this->pacienteDatos->setRaza($raza);
+        $this->pacienteDatos->setEspecie($especie);
+        $this->pacienteDatos->setIdPropietario($idPropietario);
+        $rspta = $this->pacienteDatos->editar();
         return $rspta;
     }  
     
     public function mostrar($idPaciente) 
     {
-        $this->PacienteDatos->setIdPaciente($idPaciente);
-        $rspta = $this->PacienteDatos->mostrar();
+        $this->pacienteDatos->setIdPaciente($idPaciente);
+        $rspta = $this->pacienteDatos->mostrar();
         return $rspta;
     }
-*/
+
     public function listar() 
     {
         $rspta = $this->pacienteDatos->listar();

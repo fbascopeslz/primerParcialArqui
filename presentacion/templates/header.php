@@ -103,6 +103,30 @@ if (strlen(session_id()) < 1)
                 <i class="fa fa-info-circle"></i> <span>Cartilla Vacunacion</span>                
               </a>
             </li>
+
+            <li>
+              <a href="paciente.php">
+                <i class="fa fa-info-circle"></i> <span>Paciente</span>                
+              </a>
+            </li>
+
+            <li>
+              <a href="propietario.php">
+                <i class="fa fa-info-circle"></i> <span>Propietario</span>                
+              </a>
+            </li>
+
+            <li>
+              <a href="personal.php">
+                <i class="fa fa-info-circle"></i> <span>Personal</span>                
+              </a>
+            </li>
+
+            <li>
+              <a href="consulta.php">
+                <i class="fa fa-info-circle"></i> <span>Consulta</span>                
+              </a>
+            </li>
                         
           </ul>
         </section>

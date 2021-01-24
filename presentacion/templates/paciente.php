@@ -23,7 +23,7 @@ require 'header.php';
               <div class="col-md-12">
                   <div class="box">
                     <div class="box-header with-border">
-                          <h1 class="box-title">Vacuna <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+                          <h1 class="box-title">Paciente <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
                         <div class="box-tools pull-right">
                         </div>
                     </div>
@@ -34,16 +34,20 @@ require 'header.php';
                           <thead>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Indicaciones</th>
-                            <th>Fecha de Vencimiento</th>
+                            <th>Sexo</th>
+                            <th>Raza</th>
+                            <th>Especie</th>
+                            <th>Propietario</th>
                           </thead>
                           <tbody>                            
                           </tbody>
                           <tfoot>
                             <th>Opciones</th>
                             <th>Nombre</th>
-                            <th>Indicaciones</th>
-                            <th>Fecha de Vencimiento</th>
+                            <th>Sexo</th>
+                            <th>Raza</th>
+                            <th>Especie</th>
+                            <th>Propietario</th>
                           </tfoot>
                         </table>
                     </div>
@@ -52,16 +56,29 @@ require 'header.php';
                       <form name="formulario" id="formulario" method="POST">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                           <label>Nombre:</label>
-                          <input type="hidden" name="idVacuna" id="idVacuna">
+                          <input type="hidden" name="idPaciente" id="idPaciente">
                           <input type="text" class="form-control" name="nombre" id="nombre" maxlength="150" placeholder="Nombre" required>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <label>Indicaciones:</label>
-                          <input type="text" class="form-control" name="indicaciones" id="indicaciones" maxlength="256" placeholder="Indicaciones">
+                          <label>Sexo:</label>                          
+                          <select id="sexo" name="sexo" class="form-control selectpicker" required>
+                            <option value="M">Macho</option>
+                            <option value="H">Hembra</option>
+                          </select>
                         </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                          <label>Fecha de Vencimiento:</label>
-                          <input type="text" class="form-control" name="fechaVencimiento" id="fechaVencimiento" maxlength="10" placeholder="Fecha Vencimiento" required>
+                          <label>Raza:</label>
+                          <input type="text" class="form-control" name="raza" id="raza" maxlength="150" placeholder="Raza" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <label>Especie:</label>
+                          <input type="text" class="form-control" name="especie" id="especie" maxlength="150" placeholder="Especie" required>
+                        </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                          <label>Propietario:</label>
+                          <select id="idPropietario" name="idPropietario" class="form-control selectpicker" data-live-search="true" required>
+                            
+                          </select>
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>Guardar</button>
@@ -87,10 +104,9 @@ require 'header.php';
 
 require 'footer.php';
 ?>
-<script type="text/javascript" src="../scripts/vacuna.js"></script>
+<script type="text/javascript" src="../scripts/paciente.js"></script>
 <?php 
 }
 ob_end_flush();
 ?>
-
 
